@@ -55,7 +55,7 @@ const PlaceOrder = () => {
       switch(method){
         //API call for COD
         case 'cod':
-          const response = await axios.post('http://localhost:4000/api/order/place', orderData, {headers:{token}});
+          const response = await axios.post('https://sugarlicious-cake-backend.vercel.app/api/order/place', orderData, {headers:{token}});
           if(response.data.success){
             setCartItems({})
             navigate('/orders')

@@ -39,7 +39,7 @@ const ShopContextProvider = (props) => {
 
     if(token){
       try {
-        await axios.post('http://localhost:4000/api/cart/add', {itemId, size}, {headers:{token}})
+        await axios.post('https://sugarlicious-cake-backend.vercel.app/api/cart/add', {itemId, size}, {headers:{token}})
       } catch (error) {
         console.log(error);
         toast.error(error.message)
@@ -70,7 +70,7 @@ const ShopContextProvider = (props) => {
     setCartItems(cartData);
     if(token){
       try {
-        await axios.post('http://localhost:4000/api/cart/update',{itemId,size,quantity}, {headers:{token}})
+        await axios.post('https://sugarlicious-cake-backend.vercel.app/api/cart/update',{itemId,size,quantity}, {headers:{token}})
       } catch (error) {
         console.log(error);
         toast.error(error.message)
@@ -98,7 +98,7 @@ const ShopContextProvider = (props) => {
 
   const getProductsData = async ()=> {
     try {
-      const response = await axios.get('http://localhost:4000/api/product/list')
+      const response = await axios.get('https://sugarlicious-cake-backend.vercel.app/api/product/list')
       if(response.data){
         setProducts(response.data.products)
       } else {
@@ -112,7 +112,7 @@ const ShopContextProvider = (props) => {
 
   const getUserCart = async (token)=> {
     try {
-      const response = await axios.post('http://localhost:4000/api/cart/get', {}, {headers:{token}})
+      const response = await axios.post('https://sugarlicious-cake-backend.vercel.app/api/cart/get', {}, {headers:{token}})
       if(response.data.success){
         setCartItems(response.data.cartData)
       }

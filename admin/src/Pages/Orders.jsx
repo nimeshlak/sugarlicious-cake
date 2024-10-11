@@ -14,7 +14,7 @@ const Orders = ({token}) => {
       return null;
     }
     try {
-      const response = await axios.post('http://localhost:4000/api/order/list', {}, { headers: { token } })
+      const response = await axios.post('https://sugarlicious-cake-backend.vercel.app/api/order/list', {}, { headers: { token } })
       if(response.data.success){
         setOrders(response.data.orders)
       }else{
